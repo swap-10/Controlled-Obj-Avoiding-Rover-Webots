@@ -1,0 +1,140 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  basicTimeStep 16
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.2218519622254632 -0.9490159249338896 -0.2239430308774663 1.659326937973364
+  position -2.8415047206027726 1.082290272193793 -2.1761194164356965
+  follow "e-puck"
+}
+RectangleArena {
+  translation 0 0 -0.5
+  floorSize 5 5
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+WoodenBox {
+  translation 1.57082 0.05 -2.51422
+  name "wooden box(2)"
+  size 0.1 0.1 0.1
+  mass 1
+}
+WoodenBox {
+  translation 0.426766 0.05 0.430342
+  size 0.1 0.1 0.1
+  mass 2
+}
+WoodenBox {
+  translation -0.145059 0.05 0.356661
+  rotation 0 1 0 0.661044
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+  mass 1
+}
+E-puck {
+  translation -0.793288 0 -2.05862
+  rotation 0 -1 0 1.5692
+  controller "EPuckAvoidCollision"
+  supervisor TRUE
+  distance_sensor_numberOfRays 8
+}
+Solid {
+  translation 0.6 0.2 1.9
+  children [
+    DEF Ball_Geometry Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "textures/red_brick_wall.jpg"
+          ]
+        }
+        metalness 0.2
+      }
+      geometry Sphere {
+        radius 0.06
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE Ball_Geometry
+  physics Physics {
+  }
+}
+Solid {
+  translation 0.6 0.5 1.89
+  children [
+    USE Ball_Geometry
+  ]
+  name "ball2"
+  boundingObject USE Ball_Geometry
+  physics Physics {
+  }
+}
+Solid {
+  translation 0 0 -2.29
+  children [
+    DEF MazeWall Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 1 0.1 0.01
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE MazeWall
+}
+Solid {
+  translation 0 0 -1.63
+  children [
+    USE MazeWall
+  ]
+  name "solid(2)"
+  boundingObject USE MazeWall
+}
+Solid {
+  translation 0 0 -2.11
+  children [
+    DEF Obs Shape {
+      appearance PBRAppearance {
+      }
+      geometry Cylinder {
+        height 0.5
+        radius 0.01
+      }
+    }
+  ]
+  name "obs"
+  boundingObject USE Obs
+}
+Solid {
+  translation 0.96 0 -1.89
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    USE MazeWall
+  ]
+  name "solid(3)"
+  boundingObject USE MazeWall
+}
+Solid {
+  translation 0.54 0 -2.51
+  children [
+    USE Obs
+  ]
+  name "solid(4)"
+  boundingObject USE Obs
+}
+Solid {
+  translation 1.06 0 -1.71
+  children [
+    USE Obs
+  ]
+  name "solid(5)"
+  boundingObject USE Obs
+}
+Koala {
+  translation 1.44 0 -0.7
+}
