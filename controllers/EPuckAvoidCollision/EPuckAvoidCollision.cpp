@@ -1,7 +1,7 @@
 // File:          EPuckAvoidCollision.cpp
 // Date:          14-06-2021
 // Description:   EPuck controller code to avoid collisions
-// Author:        Swapnal Varma
+// Author:        swap-10
 // Modifications:
 
 // You may need to add webots include files such as
@@ -62,7 +62,7 @@ void check_keyb(Keyboard* k, int* md)
 {
   //Keyboard* k=r->getKeyboard();
   int key=k->getKey();
-  //std::cout<<"KKEEEYYYYYY ISSSSSS::::::::::::"<<key<<"\n";
+  //std::cout<<"Key is::::::::::::"<<key<<"\n";
   switch(key)
   { 
     case int('A'):
